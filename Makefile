@@ -8,7 +8,7 @@ SUBS_DIR = 2048-cpp
 SRC = main.o playouter.o
 OUTNAME = miku
 
-.PHONY: test all clean subs $(patsubst %, $(SUBS_DIR)/%, $(SUBS_O))
+.PHONY: test all clean $(patsubst %, $(SUBS_DIR)/%, $(SUBS_O))
 
 all: $(SRC) $(patsubst %, $(SUBS_DIR)/%, $(SUBS_O))
 	$(CXX) $(CXXFLAG) $(OPT) $^ -o $(OUTNAME)
@@ -20,4 +20,7 @@ playouter.o: playouter.cpp playouter.hpp
 	$(CXX) $(CXXFLAG) $(OPT) playouter.cpp -c
 
 $(patsubst %, $(SUBS_DIR)/%, $(SUBS_O)):
-	cd $(SUBS_DIR); make OPT="$(OPT)"
+	cd $(SUBS_DIR); make OPT="$(OPT)" > /dev/null
+
+clean:
+	rm *.o $(OUTNAME)
