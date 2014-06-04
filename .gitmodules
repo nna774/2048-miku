@@ -1,0 +1,3 @@
+[submodule "2048-cpp"]
+	path = 2048-cpp
+	url = git@github.com:nna774/2048-cpp.git
