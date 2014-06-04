@@ -10,6 +10,5 @@ public:
     int playout(Board::Grid);
     int iteration(int);
 private:
-    int toDead(Board::Grid, int);
     std::function<int(Board::Grid)> staticEval;
 };
