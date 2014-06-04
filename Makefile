@@ -20,4 +20,4 @@ playouter.o: playouter.cpp playouter.hpp
 	$(CXX) $(CXXFLAG) $(OPT) playouter.cpp -c
 
 $(patsubst %, $(SUBS_DIR)/%, $(SUBS_O)):
-	cd $(SUBS_DIR); make
+	cd $(SUBS_DIR); make OPT=$(OPT)
