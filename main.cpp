@@ -7,8 +7,9 @@
 
 int main(int, char**){
     Playouter xLogx(Koyone::staticEval);
-    std::cout << xLogx.playout(0x101) << std::endl;
 
+    auto grid = Playouter::getInitGrid();
+    std::cout << xLogx.playout(grid) << std::endl;
     return 0;
 }
 
