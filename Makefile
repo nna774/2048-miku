@@ -1,6 +1,6 @@
 CXX = g++
 CXXFLAG = -std=c++11
-OPT = -O3
+OPT = -O3 -fopenmp
 
 SUBS = board.cpp koyone.cpp koyoneNext.cpp kihime.cpp kihimeNext.cpp nona7.cpp
 SUBS_O = board.o koyone.o koyoneNext.o kihime.o kihimeNext.o nona7.o
