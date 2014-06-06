@@ -13,7 +13,7 @@ OUTNAME = miku
 all: $(SRC) $(patsubst %, $(SUBS_DIR)/%, $(SUBS_O))
 	$(CXX) $(CXXFLAG) $(OPT) $^ -o $(OUTNAME)
 
-main.o: main.cpp
+main.o: main.cpp  playouter.hpp
 	$(CXX) $(CXXFLAG) $(OPT) main.cpp -c
 
 playouter.o: playouter.cpp playouter.hpp
