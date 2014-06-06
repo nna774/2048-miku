@@ -1,18 +1,30 @@
 #include <iostream>
+#include <array>
 
 #include "playouter.hpp"
 
 #include "2048-cpp/board.hpp"
 #include "2048-cpp/koyone.hpp"
 
+static int const constexpr ITERATION = 100;
+
 int main(int, char**){
     Playouter xLogx(Koyone::staticEval);
 
-    auto grid = Playouter::getInitGrid();
-    std::cout << xLogx.playout(grid) << std::endl;
+    std::array<int, ITERATION> scores;
+
+    #ifdef _OPENMP
+        #pragma omp parallel for
+    #endif
+    for(int i = 0; i < ITERATION; ++i){
+	auto grid = Playouter::getInitGrid();
+	scores[i] = xLogx.playout(grid);
+    }
+
+    for(int e:  scores)
+	std::cout << e << std::endl;
     return 0;
 }
-
 
 // a, b, b, a
 // c, d, d, c
